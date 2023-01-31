@@ -32,14 +32,14 @@ export default function Home() {
       <div className="container">
         <div className="text-center">
           <h1>Dall-e image generation</h1>
-          <p>Dall-e image generation using openai api</p>
+          <p>Dall-e image generation using openai api </p>
         </div>
 
-        <div class="row">
-          <div class="col-sm-3"></div>
-          <div class="col-sm-6">
+        <div className="row">
+          <div className="col-sm-3"></div>
+          <div className="col-sm-6">
             <form onSubmit={handleSubmit}>
-              <div class="mb-3">
+              <div className="mb-3">
                 <input
                   type="text"
                   id="prompt"
@@ -51,7 +51,7 @@ export default function Home() {
               </div>
             </form>
           </div>
-          <div class="col-sm-3"></div>
+          <div className="col-sm-3"></div>
           {imageUrl !== "" ? (
             <img
               className="img-fluid img-cus"
