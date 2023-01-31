@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Loader from "./components/Loader";
 
 export default function Home() {
   const [prompt, setPrompt] = useState("");
@@ -18,22 +19,20 @@ export default function Home() {
       }),
     });
     const imageResponse = await response.json();
-    // setImageURL(imageResponse.imageURL)
-    console.log(imageResponse);
     setImageUrl(imageResponse.imageURL);
     setLoading(0);
   };
 
   if (loading) {
-    return <Loading></Loading>;
+    return <Loader />;
   }
 
   return (
     <>
       <div className="container">
         <div className="text-center">
-          <h1>Welcome to Dall-e image generation</h1>
-          <p>Fill the below form to generate images</p>
+          <h1>Dall-e image generation</h1>
+          <p>Dall-e image generation using openai api</p>
         </div>
 
         <div class="row">
@@ -54,7 +53,11 @@ export default function Home() {
           </div>
           <div class="col-sm-3"></div>
           {imageUrl !== "" ? (
-            <img className="img-fluid" src={imageUrl} alt="image of dall-e" />
+            <img
+              className="img-fluid img-cus"
+              src={imageUrl}
+              alt="image of dall-e"
+            />
           ) : (
             ""
           )}
@@ -63,13 +66,3 @@ export default function Home() {
     </>
   );
 }
-
-const Loading = () => {
-  return (
-    <div class="d-flex justify-content-center">
-      <div class="spinner-border" role="status">
-        <span class="sr-only"></span>
-      </div>
-    </div>
-  );
-};
